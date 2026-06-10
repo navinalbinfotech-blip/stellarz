@@ -55,7 +55,7 @@ button, input { font: inherit; }
 .nav-cta span, .text-link span { color: var(--blue); margin-left: 12px; }
 .menu-toggle, .mobile-nav { display: none; }
 
-.hero { position: relative; min-height: 100vh; overflow: hidden; display: flex; align-items: flex-end; padding: 150px 7vw 7vh; }
+.hero { position: relative; min-height: 100vh; overflow: hidden; display: flex; align-items: flex-start; padding: 145px 7vw 7vh; }
 #starfield { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero::after {
   content: "";
@@ -65,15 +65,45 @@ button, input { font: inherit; }
 }
 .hero-glow { position: absolute; width: 65vw; height: 65vw; right: -17vw; top: 8vh; border-radius: 50%; background: radial-gradient(circle at 30% 40%, #38658a 0, #142b42 17%, #080e16 44%, transparent 70%); filter: blur(2px); opacity: .85; }
 .hero-glow::before { content: ""; position: absolute; inset: 6%; border-radius: 50%; border-left: 2px solid rgba(117,197,255,.65); transform: rotate(-20deg); filter: blur(1px); }
+.hero-logo {
+  position: absolute;
+  z-index: 2;
+  top: 19%;
+  right: 7%;
+  width: clamp(280px, 37vw, 590px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.hero-logo::before {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  background: rgba(0, 8, 15, .38);
+  filter: blur(35px);
+}
+.hero-logo img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  opacity: .82;
+  filter: drop-shadow(0 0 28px rgba(48, 157, 255, .28));
+}
 .orbit { position: absolute; border: 1px solid rgba(90,177,255,.34); border-radius: 50%; z-index: 1; }
 .orbit-one { width: 82vw; height: 30vw; right: -22vw; top: 30vh; transform: rotate(-18deg); }
 .orbit-two { width: 56vw; height: 17vw; right: -5vw; top: 41vh; transform: rotate(20deg); }
-.hero-content { position: relative; z-index: 2; width: 100%; }
+.hero-content { position: relative; z-index: 3; width: min(54vw, 820px); }
 .eyebrow { color: var(--blue-light); text-transform: uppercase; letter-spacing: .22em; font-size: 11px; font-weight: 600; }
 .eyebrow::before { content: ""; display: inline-block; width: 38px; height: 1px; background: var(--blue); vertical-align: middle; margin-right: 14px; }
 .hero h1, .section h2, .statement h2, .contact h2 { font-family: var(--display); font-size: clamp(62px, 9.4vw, 150px); line-height: .82; letter-spacing: -.065em; margin: 30px 0 0; font-weight: 500; }
+.hero h1 { font-size: clamp(62px, 7.7vw, 122px); }
 .hero h1 span, .section h2 span, .statement h2 span, .contact h2 span { color: transparent; -webkit-text-stroke: 1px rgba(130,198,255,.75); }
-.hero-bottom { display: flex; align-items: flex-end; justify-content: space-between; max-width: 830px; margin-top: 45px; }
+.hero-bottom { display: flex; align-items: flex-end; justify-content: space-between; max-width: 700px; margin-top: 55px; }
 .hero-bottom p { width: min(560px, 65vw); color: #b1b8c2; line-height: 1.75; font-size: 14px; }
 .circle-link { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.3); font-size: 22px; transition: .25s; }
 .circle-link:hover { border-color: var(--blue); color: var(--blue); transform: translateY(4px); }
@@ -180,6 +210,8 @@ footer { padding: 42px 5vw; display: grid; grid-template-columns: 1.2fr 1fr auto
   .mobile-nav { position: fixed; display: flex; flex-direction: column; inset: 0; background: rgba(3,5,8,.97); z-index: 11; padding: 130px 8vw; gap: 30px; font-family: var(--display); font-size: 32px; transform: translateY(-105%); transition: transform .4s ease; }
   .mobile-nav.open { transform: translateY(0); }
   .hero-glow { width: 105vw; height: 105vw; right: -50vw; top: 20vh; }
+  .hero-logo { top: 25%; right: -8%; width: min(56vw, 450px); opacity: .52; }
+  .hero-content { width: min(72vw, 650px); }
   .hero-coordinate { display: none; }
   .manifesto-copy { padding-left: 0; }
   .stats { grid-template-columns: repeat(2, 1fr); }
@@ -199,6 +231,8 @@ footer { padding: 42px 5vw; display: grid; grid-template-columns: 1.2fr 1fr auto
   .brand img { width: 34px; height: 34px; }
   .brand { font-size: 11px; }
   .hero { padding: 120px 6vw 8vh; }
+  .hero-content { width: 100%; }
+  .hero-logo { top: 23%; right: -20%; width: 78vw; opacity: .3; }
   .hero h1 { font-size: clamp(53px, 17vw, 80px); }
   .hero-bottom { display: block; }
   .hero-bottom p { width: 100%; }
