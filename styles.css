@@ -186,6 +186,8 @@ button, input { font: inherit; }
 .contact-inner { position: relative; z-index: 1; max-width: 1000px; width: 100%; }
 .contact h2 { font-size: clamp(60px, 9vw, 140px); }
 .contact-copy { max-width: 540px; margin: 35px auto; color: #919aa6; line-height: 1.7; font-size: 14px; }
+.contact-email { display: inline-block; color: var(--blue-light); font-family: var(--display); font-size: clamp(17px, 2vw, 25px); letter-spacing: .02em; padding-bottom: 8px; border-bottom: 1px solid rgba(128, 200, 255, .4); }
+.contact-email span { margin-left: 8px; font-size: .7em; }
 .contact-form { display: flex; max-width: 580px; margin: 45px auto 0; border-bottom: 1px solid #53616e; align-items: flex-end; }
 .contact-form label { flex: 1; text-align: left; }
 .contact-form label span { display: block; text-transform: uppercase; font-size: 9px; letter-spacing: .16em; color: #697481; }
@@ -197,6 +199,7 @@ button, input { font: inherit; }
 footer { padding: 42px 5vw; display: grid; grid-template-columns: 1.2fr 1fr auto auto; gap: 40px; align-items: center; border-top: 1px solid var(--line); color: #727b86; font-size: 10px; text-transform: uppercase; letter-spacing: .1em; }
 .footer-brand { color: white; }
 .footer-links { display: flex; gap: 20px; }
+.footer-email { color: #8fbfe4; text-transform: lowercase; letter-spacing: .04em; }
 
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
