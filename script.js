@@ -90,13 +90,32 @@ mobileNav.querySelectorAll("a").forEach((link) => {
 const form = document.querySelector(".contact-form");
 const formStatus = document.querySelector(".form-status");
 
-form.addEventListener("submit", (event) => {
-  const email = new FormData(form).get("email");
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const formData = new FormData(form);
+  const email = formData.get("email");
+
   if (window.location.protocol === "file:") {
-    event.preventDefault();
     formStatus.textContent = "Please open this page through a web server before testing the contact form.";
     return;
   }
 
   formStatus.textContent = `Thanks. Sending your request for ${email} now.`;
+
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" }
+    });
+
+    if (!response.ok) {
+      throw new Error("Unable to submit form.");
+    }
+
+    formStatus.textContent = "Thanks for contacting Stellarz - we've got your message. Will get back to you at earliest";
+    form.reset();
+  } catch (error) {
+    formStatus.textContent = "Sorry, the message could not be sent right now. Please email civilization@stellarz.space directly.";
+  }
 });
