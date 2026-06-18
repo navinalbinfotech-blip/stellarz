@@ -91,8 +91,12 @@ const form = document.querySelector(".contact-form");
 const formStatus = document.querySelector(".form-status");
 
 form.addEventListener("submit", (event) => {
-  event.preventDefault();
   const email = new FormData(form).get("email");
-  formStatus.textContent = `Thanks. We'll reach out to ${email}.`;
-  form.reset();
+  if (window.location.protocol === "file:") {
+    event.preventDefault();
+    formStatus.textContent = "Please open this page through a web server before testing the contact form.";
+    return;
+  }
+
+  formStatus.textContent = `Thanks. Sending your request for ${email} now.`;
 });
